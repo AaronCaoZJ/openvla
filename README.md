@@ -82,6 +82,8 @@ visually-conditioned language models; while you can use this repo to train VLMs 
 language (via `scripts/generate.py`) with existing OpenVLA models will not work (as we only train current OpenVLA models
 to generate actions, and actions alone).
 
+<br>
+
 # 🔎 Evaluating with LIBERO Simulation Benchmark
 
 In the [updated OpenVLA paper (v2)](https://arxiv.org/abs/2406.09246), we discuss fine-tuning OpenVLA
