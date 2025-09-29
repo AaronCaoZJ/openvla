@@ -107,9 +107,17 @@ Additionally, install other required packages:
 ```bash
 cd openvla
 pip install -r experiments/robot/libero/libero_requirements.txt
+
 # 再次确保torch和flash_attn的版本正确
 pip install torch==2.8.0+cu128 torchvision==0.23.0+cu128 torchaudio==2.8.0+cu128 --extra-index-url https://download.pytorch.org/whl/cu128
 pip install "flash-attn==2.8.3" --no-build-isolation
+```
+```python
+# 在脚本前添加LIBERO路径，避免找不到模块
+import sys
+sys.path = ["/home/zhijun/VLA_Practice/LIBERO"] + sys.path  # 保证优先加载正确的 LIBERO
+import os
+os.chdir("/home/zhijun/VLA_Practice/LIBERO")
 ```
 
 (Optional) To download the modified versions of the LIBERO datasets that we used in our fine-tuning
