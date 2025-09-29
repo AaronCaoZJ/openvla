@@ -17,6 +17,12 @@ Usage:
         --wandb_entity <ENTITY>
 """
 
+import sys
+sys.path.append("/home/zhijun/VLA_Practice/LIBERO")
+
+import os
+os.chdir("/home/zhijun/VLA_Practice/LIBERO")
+
 import os
 import sys
 from dataclasses import dataclass
@@ -31,7 +37,7 @@ from libero.libero import benchmark
 import wandb
 
 # Append current directory so that interpreter can find experiments.robot
-sys.path.append("../..")
+# sys.path.append("../..")
 from experiments.robot.libero.libero_utils import (
     get_libero_dummy_action,
     get_libero_env,
@@ -87,7 +93,7 @@ class GenerateConfig:
     # fmt: on
 
 
-@draccus.wrap()
+# @draccus.wrap()
 def eval_libero(cfg: GenerateConfig) -> None:
     assert cfg.pretrained_checkpoint is not None, "cfg.pretrained_checkpoint must not be None!"
     if "image_aug" in cfg.pretrained_checkpoint:
