@@ -17,11 +17,11 @@ Usage:
         --wandb_entity <ENTITY>
 """
 
-import sys
-sys.path.append("/home/zhijun/VLA_Practice/LIBERO")
+# import sys
+# sys.path.append("/home/zhijun/VLA_Practice/LIBERO")
 
-import os
-os.chdir("/home/zhijun/VLA_Practice/LIBERO")
+# import os
+# os.chdir("/home/zhijun/VLA_Practice/LIBERO")
 
 import os
 import sys
@@ -37,7 +37,7 @@ from libero.libero import benchmark
 import wandb
 
 # Append current directory so that interpreter can find experiments.robot
-# sys.path.append("../..")
+sys.path.append("../..")
 from experiments.robot.libero.libero_utils import (
     get_libero_dummy_action,
     get_libero_env,

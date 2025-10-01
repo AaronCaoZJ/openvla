@@ -1,8 +1,10 @@
-import sys
-sys.path = ["/home/zhijun/VLA_Practice/LIBERO"] + sys.path  # 保证优先加载正确的 LIBERO
-
 import os
-os.chdir("/home/zhijun/VLA_Practice/LIBERO")
+import sys
+
+LIBERO_ROOT = "/home/zhijun/VLA_Practice/LIBERO"
+os.environ["LIBERO_PATH"] = LIBERO_ROOT
+sys.path.insert(0, LIBERO_ROOT)
+os.chdir(LIBERO_ROOT)
 
 from run_libero_eval import GenerateConfig, eval_libero
 
@@ -14,6 +16,6 @@ cfg = GenerateConfig(
     # 其他参数可按需填写
 )
 
-print(sys.path)
+# print(sys.path)
 
 eval_libero(cfg)
