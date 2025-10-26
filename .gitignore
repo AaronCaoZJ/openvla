@@ -151,3 +151,7 @@ data/
 # Rollout videos and wandb logs
 rollouts/
 wandb/
+
+experiments/robot/libero/libero/assets
+experiments/robot/libero/libero/bddl_files
+experiments/robot/libero/libero/init_files

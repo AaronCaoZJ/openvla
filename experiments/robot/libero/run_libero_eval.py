@@ -94,7 +94,7 @@ class GenerateConfig:
 
 
 # @draccus.wrap()
-def eval_libero(cfg: GenerateConfig) -> None:
+def eval_libero(cfg: GenerateConfig, custom_prompt: Optional[str] = None) -> None:
     assert cfg.pretrained_checkpoint is not None, "cfg.pretrained_checkpoint must not be None!"
     if "image_aug" in cfg.pretrained_checkpoint:
         assert cfg.center_crop, "Expecting `center_crop==True` because model was trained with image augmentations!"
@@ -159,7 +159,10 @@ def eval_libero(cfg: GenerateConfig) -> None:
         initial_states = task_suite.get_task_init_states(task_id)
 
         # Initialize LIBERO environment and task description
-        env, task_description = get_libero_env(task, cfg.model_family, resolution=256)
+        # env, task_description = get_libero_env(task, cfg.model_family, resolution=256)
+        env, description = get_libero_env(task, cfg.model_family, resolution=256)
+        task_description = custom_prompt if custom_prompt else description
+
 
         # Start episodes
         task_episodes, task_successes = 0, 0
